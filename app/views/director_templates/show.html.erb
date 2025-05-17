@@ -122,19 +122,12 @@
       Year
     </th>
 
-    <th>
-      Director
-    </th>
 
     <th>
     </th>
   </tr>
 
-  <% the_id = @the_director.id %>
-
-  <% matching_movies = Movie.where({ :director_id => the_id }) %>
-
-  <% films = matching_movies.order({ :year => :asc }) %>
+  <% films = @the_director.filmography.order({ :year => :asc }) %>
 
   <% films.each do |a_movie| %>
     <tr>
@@ -154,9 +147,6 @@
         <%= a_movie.year %>
       </td>
 
-      <td>
-        <%= Director.where({ :id => a_movie.director_id }).at(0).name %>
-      </td>
 
       <td>
         <a href="/movies/<%= a_movie.id %>">

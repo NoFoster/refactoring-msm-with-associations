@@ -87,6 +87,13 @@
     <%= @the_movie.year %>
   </dd>
 
+<dt>
+  Director
+</dt>
+<dd>
+  <%= @the_movie.director.name %>
+</dd>
+
   <dt>
     Duration
   </dt>
@@ -112,14 +119,10 @@
     Director
   </dt>
   <dd>
-    <% the_id = @the_movie.director_id %>
 
-    <% matching_directors = Director.where({ :id => the_id }) %>
-        
-    <% the_director = matching_directors.at(0) %>
+    <%  @the_movie.director.name %> 
 
-    <% if the_director != nil %>
-      <%= the_director.name %>
+    <% if @the_movie.director.name != nil %>
     <% else %>
       Uh oh! We weren't able to find a director for this movie.
     <% end %>
