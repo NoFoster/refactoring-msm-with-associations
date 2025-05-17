@@ -125,9 +125,7 @@
     <th>
     </th>
   </tr>
-  <% matching_characters = @the_actor.characters %>
-
-  <% matching_characters.each do |a_character| %>
+<% @the_actor.characters.each do |a_character| %>
 
   <% the_movie = a_character.movie %>
   
@@ -141,7 +139,7 @@
       </td>
 
       <td>
-        <% the_director = the_movie.director %>
+        <%= the_movie.director.name %>
       </td>
 
       <td>
